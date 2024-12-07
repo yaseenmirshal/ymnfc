@@ -52,7 +52,7 @@ export default function Home() {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white">
-      <div className="text-center max-w-md w-full p-6 rounded-lg shadow-2xl backdrop-blur-lg bg-white/10 border border-white/10">
+      <div className="text-center max-w-md w-full p-6   ">
         {/* Profile Image */}
         <div
           className="relative w-28 h-28 mx-auto mb-6"
@@ -82,22 +82,32 @@ export default function Home() {
         >
           Web Developer • Designer
         </p>
+{/* Contact Information */}
+<div
+  className="space-y-4 mb-6" // Increased spacing to `space-y-4` for better gap
+  data-aos="fade-up"
+  data-aos-delay="400"
+>
+  <a
+    href="tel:+919947234099"
+    className="block"
+  >
+    <ContactCard
+      icon={<FaPhoneAlt size={18} />}
+      text="+91 9947234099"
+    />
+  </a>
+  <a
+    href="mailto:mirshalranzomllp@gmail.com"
+    className="block"
+  >
+    <ContactCard
+      icon={<FaEnvelope size={18} />}
+      text="mirshalranzomllp@gmail.com"
+    />
+  </a>
+</div>
 
-        {/* Contact Information */}
-        <div
-          className="space-y-3 mb-6"
-          data-aos="fade-up"
-          data-aos-delay="400"
-        >
-          <ContactCard
-            icon={<FaPhoneAlt size={16} />}
-            text="+91 9947234099"
-          />
-          <ContactCard
-            icon={<FaEnvelope size={16} />}
-            text="mirshalranzomllp@gmail.com"
-          />
-        </div>
 
         {/* Social Media Icons */}
         <div
@@ -174,13 +184,13 @@ export default function Home() {
         {/* Buttons */}
         <div
           className="flex justify-center gap-4"
-          data-aos="fade-up"
-          data-aos-delay="800"
+          
         >
-          <a href="https://wa.me/+919947234099">
+          
+          <a href="https://yaseen-mirshal-portfolio.vercel.app/">
             <Button text="My Portfolio" />
           </a>
-          <a href="https://yaseen-mirshal-portfolio.vercel.app/">
+          <a href="https://wa.me/+919947234099">
             <Button text="Get In Touch" isPrimary />
           </a>
         </div>
