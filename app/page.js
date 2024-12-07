@@ -1,5 +1,5 @@
 'use client';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Import AOS styles
@@ -17,13 +17,38 @@ import {
 } from 'react-icons/fa';
 
 export default function Home() {
+  const [loading, setLoading] = useState(true);
+
   // Initialize AOS animations
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true,
     });
+
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setLoading(false); // Stop loading after 2 seconds
+    }, 2000);
+
+    return () => clearTimeout(timer); // Clean up the timer
   }, []);
+
+  // Show loading screen
+  if (loading) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-black z-50">
+        <Image
+          src="/ymloading.png" // Replace with your image path
+          alt="Loading"
+          width={300}
+          height={300}
+          priority
+          className="animate-pulse"
+        />
+      </div>
+    );
+  }
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white">
@@ -55,8 +80,7 @@ export default function Home() {
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          I craft stunning, user-friendly, and responsive web experiences with a
-          passion for front-end development and UI/UX design.
+          Web Developer • Designer
         </p>
 
         {/* Contact Information */}
@@ -75,77 +99,77 @@ export default function Home() {
           />
         </div>
 
-       {/* Social Media Icons */}
-<div
-  className="flex justify-center gap-4 mb-6 flex-wrap"
-  data-aos="fade-up"
-  data-aos-delay="600"
->
-  <a
-    href="https://www.instagram.com/yaseen_mirshal/?igshid=NzZlODBkYWE4Ng%3D%3D"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Instagram"
-  >
-    <SocialIcon icon={<FaInstagram />} />
-  </a>
-  <a
-    href="https://wa.me/+919947234099"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="WhatsApp"
-  >
-    <SocialIcon icon={<FaWhatsapp />} />
-  </a>
-  <a
-    href="https://www.linkedin.com/in/yaseen-mirshal/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="LinkedIn"
-  >
-    <SocialIcon icon={<FaLinkedin />} />
-  </a>
-  <a
-    href="https://www.youtube.com/channel/UC-alWGLEsO8jUZaHeNBvgTA"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="YouTube"
-  >
-    <SocialIcon icon={<FaYoutube />} />
-  </a>
-  <a
-    href="https://github.com/yaseenmirshal"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="GitHub"
-  >
-    <SocialIcon icon={<FaGithub />} />
-  </a>
-  <a
-    href="https://x.com/yaseen_mirshal"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Twitter"
-  >
-    <SocialIcon icon={<FaTwitter />} />
-  </a>
-  <a
-    href="https://www.facebook.com/yaseen.mirshal.5/"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Facebook"
-  >
-    <SocialIcon icon={<FaFacebook />} />
-  </a>
-  <a
-    href="https://www.behance.net/yaseenmirshal"
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label="Behance"
-  >
-    <SocialIcon icon={<FaBehance />} />
-  </a>
-</div>
+        {/* Social Media Icons */}
+        <div
+          className="flex justify-center gap-4 mb-6 flex-wrap"
+          data-aos="fade-up"
+          data-aos-delay="600"
+        >
+          <a
+            href="https://www.instagram.com/yaseen_mirshal/?igshid=NzZlODBkYWE4Ng%3D%3D"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram"
+          >
+            <SocialIcon icon={<FaInstagram />} />
+          </a>
+          <a
+            href="https://wa.me/+919947234099"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="WhatsApp"
+          >
+            <SocialIcon icon={<FaWhatsapp />} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/yaseen-mirshal/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <SocialIcon icon={<FaLinkedin />} />
+          </a>
+          <a
+            href="https://www.youtube.com/channel/UC-alWGLEsO8jUZaHeNBvgTA"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube"
+          >
+            <SocialIcon icon={<FaYoutube />} />
+          </a>
+          <a
+            href="https://github.com/yaseenmirshal"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <SocialIcon icon={<FaGithub />} />
+          </a>
+          <a
+            href="https://x.com/yaseen_mirshal"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter"
+          >
+            <SocialIcon icon={<FaTwitter />} />
+          </a>
+          <a
+            href="https://www.facebook.com/yaseen.mirshal.5/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
+          >
+            <SocialIcon icon={<FaFacebook />} />
+          </a>
+          <a
+            href="https://www.behance.net/yaseenmirshal"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Behance"
+          >
+            <SocialIcon icon={<FaBehance />} />
+          </a>
+        </div>
 
         {/* Buttons */}
         <div
@@ -153,8 +177,12 @@ export default function Home() {
           data-aos="fade-up"
           data-aos-delay="800"
         >
-          <a href='https://wa.me/+919947234099'><Button  text="My Portfolio" /></a> 
-         <a href='https://yaseen-mirshal-portfolio.vercel.app/'></a> <Button text="Get In Touch" isPrimary />
+          <a href="https://wa.me/+919947234099">
+            <Button text="My Portfolio" />
+          </a>
+          <a href="https://yaseen-mirshal-portfolio.vercel.app/">
+            <Button text="Get In Touch" isPrimary />
+          </a>
         </div>
       </div>
     </div>
