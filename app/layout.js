@@ -1,6 +1,10 @@
-import localFont from "next/font/local";
-import "./globals.css";
+// app/layout.js
+import localFont from "next/font/local"; // Import localFont
+import { Sora } from 'next/font/google'; // Import the Sora font
+import "./globals.css"; // Import your global CSS
 
+
+// Load local fonts
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -12,18 +16,26 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+// Load the Sora font
+const sora = Sora({
+  subsets: ['latin'], // Specify the subsets you need
+  weights: ['100', '400', '600', '800'], // Specify the font weights you want to use
+});
+
 export const metadata = {
   title: "ymNFC",
-  description: "NFC CARD",
+  description: "YM NFC CARD",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${sora.className} antialiased`} // Add Sora class here
       >
+       
         {children}
+       
       </body>
     </html>
   );

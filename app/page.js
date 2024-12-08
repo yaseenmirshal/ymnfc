@@ -27,15 +27,10 @@ export default function Home() {
       once: true,
     });
 
-    // Simulate loading time
-    const timer = setTimeout(() => {
-      setLoading(false); // Stop loading after 2 seconds
-    }, 2000);
-
-    return () => clearTimeout(timer); // Clean up the timer
+    const timer = setTimeout(() => setLoading(false), 2000); // Stop loading after 2 seconds
+    return () => clearTimeout(timer);
   }, []);
 
-  // Show loading screen
   if (loading) {
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-black z-50">
@@ -52,149 +47,115 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-gray-800 relative">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-200 text-gray-800 relative">
       {/* Banner */}
-      <div className="relative w-full h-36 bg-gray-900">
+      <div className="relative w-full h-44 bg-gradient-to-r from-gray-800 to-gray-600 shadow-lg">
         <Image
           src="/banner.png"
           alt="Banner"
           layout="fill"
           objectFit="cover"
           priority
-          className="opacity-30"
+          className="opacity-50"
         />
       </div>
 
       {/* Profile Section */}
       <div className="absolute top-20 left-1/2 transform -translate-x-1/2">
-        {/* Profile Image */}
         <div
-          className="relative w-32 h-32 mx-auto mb-6"
+          className="relative w-36 h-36 mx-auto mb-4"
           data-aos="zoom-in"
         >
           <Image
             src="/yaseen.png"
             alt="Profile"
-            width={128}
-            height={128}
-            className="rounded-full object-cover border-4 border-gray-900 shadow-lg"
+            width={144}
+            height={144}
+            className="rounded-full object-cover border-4 border-gray-700 shadow-2xl hover:scale-110 transition-transform duration-300"
           />
-          {/* <div className="absolute bottom-0 right-0 w-6 h-6 bg-white rounded-full animate-pulse border-2 border-gray-900"></div> */}
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="text-center mt-20 px-4">
-        {/* Profile Name */}
+      <div className="text-center mt-24 px-4">
         <h1
-          className="text-3xl font-bold mb-2 text-gray-900"
+          className="text-4xl font-extrabold mb-2 text-gray-800"
           data-aos="fade-down"
         >
           Yaseen Mirshal
         </h1>
         <p
-          className="text-gray-600 text-sm mb-6"
+          className="text-gray-600 text-sm mb-8 italic"
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          Software Developer
+          Software Developer | Designer
         </p>
 
-        {/* Contact Information */}
-        <div className="flex flex-col items-center space-y-4 mb-6" data-aos="fade-up" data-aos-delay="400">
-          <ContactCard
-            icon={<FaPhoneAlt size={20} />}
-            text="+91 9947234099"
-          />
+        {/* Contact Cards */}
+        <div
+          className="flex flex-col items-center space-y-4 mb-8"
+          data-aos="fade-up"
+          data-aos-delay="400"
+        >
+          <ContactCard icon={<FaPhoneAlt size={20} />} text="+91 9947234099" />
           <ContactCard
             icon={<FaEnvelope size={20} />}
             text="mirshalranzomllp@gmail.com"
-          />
-          <Button
-            text="Save Contact"
-            isPrimary
-            icon={<FaDownload />}
           />
         </div>
 
         {/* Social Media Icons */}
         <div
-          className="flex justify-center gap-4 mb-6 flex-wrap"
+          className="flex justify-center gap-5 flex-wrap mb-8"
           data-aos="fade-up"
           data-aos-delay="600"
         >
-          <SocialLink
-            icon={<FaInstagram />}
-            href="https://www.instagram.com/yaseen_mirshal/"
-            label="Instagram"
-          />
-          <SocialLink
-            icon={<FaWhatsapp />}
-            href="https://wa.me/+919947234099"
-            label="WhatsApp"
-          />
-          <SocialLink
-            icon={<FaLinkedin />}
-            href="https://www.linkedin.com/in/yaseen-mirshal/"
-            label="LinkedIn"
-          />
-          <SocialLink
-            icon={<FaYoutube />}
-            href="https://www.youtube.com/channel/UC-alWGLEsO8jUZaHeNBvgTA"
-            label="YouTube"
-          />
-          <SocialLink
-            icon={<FaGithub />}
-            href="https://github.com/yaseenmirshal"
-            label="GitHub"
-          />
-          <SocialLink
-            icon={<FaTwitter />}
-            href="https://x.com/yaseen_mirshal"
-            label="Twitter"
-          />
-          <SocialLink
-            icon={<FaFacebook />}
-            href="https://www.facebook.com/yaseen.mirshal.5/"
-            label="Facebook"
-          />
-          <SocialLink
-            icon={<FaBehance />}
-            href="https://www.behance.net/yaseenmirshal"
-            label="Behance"
-          />
+          <SocialLink icon={<FaInstagram />} href="https://www.instagram.com/yaseen_mirshal/" />
+          <SocialLink icon={<FaWhatsapp />} href="https://wa.me/+919947234099" />
+          <SocialLink icon={<FaLinkedin />} href="https://www.linkedin.com/in/yaseen-mirshal/" />
+          <SocialLink icon={<FaYoutube />} href="https://www.youtube.com/channel/UC-alWGLEsO8jUZaHeNBvgTA" />
+          <SocialLink icon={<FaGithub />} href="https://github.com/yaseenmirshal" />
+          <SocialLink icon={<FaTwitter />} href="https://x.com/yaseen_mirshal" />
+          <SocialLink icon={<FaFacebook />} href="https://www.facebook.com/yaseen.mirshal.5/" />
+          <SocialLink icon={<FaBehance />} href="https://www.behance.net/yaseenmirshal" />
         </div>
 
         {/* Buttons */}
-        <div className="flex justify-center pb-10 gap-4">
+        <div className="flex justify-center gap-4 pb-2">
           <a href="https://yaseen-mirshal-portfolio.vercel.app/">
-            <Button text="My Portfolio" />
+            <Button text="Portfolio" />
           </a>
-          <a href="https://wa.me/+919947234099">
-            <Button text="Get In Touch" isPrimary />
+          <a href="/YaseenMirshal.vcf" download="Yaseen_Mirshal_Contact">
+            <Button text="Save Contact" isPrimary icon={<FaDownload />} />
           </a>
         </div>
       </div>
+
+      {/* Footer */}
+      <p className="text-center text-gray-500 text-sm mt-6 pb-5">
+        Powered by{' '}
+        <span className="font-bold text-gray-700">YMInnovation</span>
+      </p>
     </div>
   );
 }
 
 // Contact Card Component
 const ContactCard = ({ icon, text }) => (
-  <div className="flex items-center gap-3 bg-gray-100 px-4 py-2 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
-    <div className="text-gray-900">{icon}</div>
-    <span className="text-gray-700 text-sm font-medium">{text}</span>
+  <div className="flex items-center gap-3 bg-white/50 backdrop-blur-md px-5 py-3 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
+    <div className="text-gray-700">{icon}</div>
+    <span className="text-gray-700 text-sm font-semibold">{text}</span>
   </div>
 );
 
 // Social Link Component
-const SocialLink = ({ href, icon, label }) => (
+const SocialLink = ({ href, icon }) => (
   <a
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    aria-label={label}
-    className="w-12 h-12 flex items-center justify-center bg-gray-200 rounded-full text-gray-800 hover:bg-gray-900 hover:text-white transition-all duration-300 shadow-md"
+    className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300 rounded-full text-gray-800 hover:bg-gray-800 hover:text-white hover:scale-110 transition-all duration-300 shadow-md"
   >
     {icon}
   </a>
@@ -203,11 +164,11 @@ const SocialLink = ({ href, icon, label }) => (
 // Button Component
 const Button = ({ text, isPrimary, icon }) => (
   <button
-    className={`flex items-center justify-center gap-2 px-6 py-2 rounded-lg font-medium text-sm shadow-md transition-transform duration-300 ${
+    className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-md shadow-md transition-transform duration-300 ${
       isPrimary
-        ? 'bg-gray-900 hover:bg-gray-700 text-white'
-        : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
-    } hover:scale-105`}
+        ? 'bg-gradient-to-r from-gray-800 to-gray-600 hover:from-gray-700 hover:to-gray-500 text-white'
+        : 'bg-gray-300 hover:bg-gray-400 text-gray-700'
+    } hover:scale-110`}
   >
     {icon && <span>{icon}</span>}
     {text}
