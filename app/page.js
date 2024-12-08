@@ -91,19 +91,25 @@ export default function Home() {
         >
           Software Developer | Designer
         </p>
+        
+{/* Contact Cards */}
+<div
+  className="flex flex-col items-center space-y-4 mb-8"
+  data-aos="fade-up"
+  data-aos-delay="400"
+>
+  <ContactCard
+    href="tel:+919947234099"
+    icon={<FaPhoneAlt size={20} />}
+    text="+91 9947234099"
+  />
+  <ContactCard
+    href="mailto:mirshalranzomllp@gmail.com"
+    icon={<FaEnvelope size={20} />}
+    text="mirshalranzomllp@gmail.com"
+  />
+</div>
 
-        {/* Contact Cards */}
-        <div
-          className="flex flex-col items-center space-y-4 mb-8"
-          data-aos="fade-up"
-          data-aos-delay="400"
-        >
-          <ContactCard icon={<FaPhoneAlt size={20} />} text="+91 9947234099" />
-          <ContactCard
-            icon={<FaEnvelope size={20} />}
-            text="mirshalranzomllp@gmail.com"
-          />
-        </div>
 
         {/* Social Media Icons */}
         <div
@@ -155,11 +161,12 @@ const SocialLink = ({ href, icon }) => (
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300 rounded-full text-gray-800 hover:bg-gray-800 hover:text-white hover:scale-110 transition-all duration-300 shadow-md"
+    className="w-16 h-16 flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-300 rounded-full text-gray-800 hover:bg-gray-800 hover:text-white hover:scale-110 transition-all duration-300 shadow-md"
   >
-    {icon}
+    <span className="text-2xl">{icon}</span>
   </a>
 );
+
 
 // Button Component
 const Button = ({ text, isPrimary, icon }) => (
