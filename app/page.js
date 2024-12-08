@@ -14,6 +14,7 @@ import {
   FaPhoneAlt,
   FaEnvelope,
   FaBehance,
+  FaDownload,
 } from 'react-icons/fa';
 
 export default function Home() {
@@ -37,7 +38,7 @@ export default function Home() {
   // Show loading screen
   if (loading) {
     return (
-      <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
+      <div className="fixed inset-0 flex items-center justify-center bg-black z-50">
         <Image
           src="/ymloading.png"
           alt="Loading"
@@ -53,18 +54,19 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-gray-800 relative">
       {/* Banner */}
-      <div className="relative w-full h-60 bg-gradient-to-r from-gray-100 to-gray-300">
+      <div className="relative w-full h-36 bg-gray-900">
         <Image
-          src="/banner.png" // Replace with your banner image
+          src="/banner.png"
           alt="Banner"
           layout="fill"
           objectFit="cover"
           priority
+          className="opacity-30"
         />
       </div>
 
       {/* Profile Section */}
-      <div className="absolute top-36 left-1/2 transform -translate-x-1/2">
+      <div className="absolute top-20 left-1/2 transform -translate-x-1/2">
         {/* Profile Image */}
         <div
           className="relative w-32 h-32 mx-auto mb-6"
@@ -75,23 +77,23 @@ export default function Home() {
             alt="Profile"
             width={128}
             height={128}
-            className="rounded-full object-cover border-4 border-white shadow-lg"
+            className="rounded-full object-cover border-4 border-gray-900 shadow-lg"
           />
-          <div className="absolute bottom-0 right-0 w-6 h-6 bg-green-500 rounded-full animate-pulse border-2 border-white"></div>
+          {/* <div className="absolute bottom-0 right-0 w-6 h-6 bg-white rounded-full animate-pulse border-2 border-gray-900"></div> */}
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="text-center mt-28 px-4">
+      <div className="text-center mt-20 px-4">
         {/* Profile Name */}
         <h1
-          className="text-3xl font-bold mb-2"
+          className="text-3xl font-bold mb-2 text-gray-900"
           data-aos="fade-down"
         >
           Yaseen Mirshal
         </h1>
         <p
-          className="text-gray-500 text-sm mb-6"
+          className="text-gray-600 text-sm mb-6"
           data-aos="fade-up"
           data-aos-delay="200"
         >
@@ -108,7 +110,11 @@ export default function Home() {
             icon={<FaEnvelope size={20} />}
             text="mirshalranzomllp@gmail.com"
           />
-          <Button text="Save Contact" isPrimary />
+          <Button
+            text="Save Contact"
+            isPrimary
+            icon={<FaDownload />}
+          />
         </div>
 
         {/* Social Media Icons */}
@@ -160,7 +166,7 @@ export default function Home() {
         </div>
 
         {/* Buttons */}
-        <div className="flex justify-center gap-4">
+        <div className="flex justify-center pb-10 gap-4">
           <a href="https://yaseen-mirshal-portfolio.vercel.app/">
             <Button text="My Portfolio" />
           </a>
@@ -175,8 +181,8 @@ export default function Home() {
 
 // Contact Card Component
 const ContactCard = ({ icon, text }) => (
-  <div className="flex items-center gap-3 bg-gray-200 px-4 py-2 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
-    <div className="text-purple-500">{icon}</div>
+  <div className="flex items-center gap-3 bg-gray-100 px-4 py-2 rounded-lg shadow-md hover:scale-105 transition-transform duration-300">
+    <div className="text-gray-900">{icon}</div>
     <span className="text-gray-700 text-sm font-medium">{text}</span>
   </div>
 );
@@ -188,21 +194,22 @@ const SocialLink = ({ href, icon, label }) => (
     target="_blank"
     rel="noopener noreferrer"
     aria-label={label}
-    className="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-full text-purple-500 hover:bg-purple-500 hover:text-white transition-all duration-300 shadow-md"
+    className="w-12 h-12 flex items-center justify-center bg-gray-200 rounded-full text-gray-800 hover:bg-gray-900 hover:text-white transition-all duration-300 shadow-md"
   >
     {icon}
   </a>
 );
 
 // Button Component
-const Button = ({ text, isPrimary }) => (
+const Button = ({ text, isPrimary, icon }) => (
   <button
-    className={`px-6 py-2 rounded-lg font-medium text-sm shadow-md transition-transform duration-300 ${
+    className={`flex items-center justify-center gap-2 px-6 py-2 rounded-lg font-medium text-sm shadow-md transition-transform duration-300 ${
       isPrimary
-        ? 'bg-purple-600 hover:bg-purple-500 text-white'
-        : 'bg-gray-300 hover:bg-gray-200 text-gray-700'
+        ? 'bg-gray-900 hover:bg-gray-700 text-white'
+        : 'bg-gray-200 hover:bg-gray-300 text-gray-800'
     } hover:scale-105`}
   >
+    {icon && <span>{icon}</span>}
     {text}
   </button>
 );
