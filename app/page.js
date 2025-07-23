@@ -112,7 +112,7 @@ export default function Home() {
     </a>
     <button
       onClick={async () => {
-        const nfcLink = 'https://yaseen-mirshal-portfolio.vercel.app/';
+        const nfcLink = 'https://ymnfc.vercel.app/';
         if (navigator.share) {
           try {
             await navigator.share({
@@ -164,7 +164,7 @@ export default function Home() {
 
         {/* Buttons */}
         <div className="flex justify-center gap-4 pb-2">
-          <a href="https://ymnfc.vercel.app/">
+          <a href="https://yaseen-mirshal-portfolio.vercel.app/">
             <Button text="Portfolio" />
           </a>
           <a href="/YaseenMirshal.vcf" download="Yaseen_Mirshal_Contact">
