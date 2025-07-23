@@ -148,7 +148,6 @@ export default function Home() {
     </div>
   );
 }
-
 // Contact Card Component
 const ContactCard = ({ icon, text }) => (
   <div className="flex items-center gap-3 bg-white/50 backdrop-blur-md px-5 py-3 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
