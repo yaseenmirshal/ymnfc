@@ -141,13 +141,14 @@ export default function Home() {
       {/* Footer */}
       <p className="text-center text-gray-500 text-sm mt-6 pb-5">
         Powered by{' '}
-        <a href='https://www.instagram.com/ranzomtech/'>
+        <a href='https://www.instagram.com/ranzomtech/' target='_blank'>
         <span className="font-bold text-gray-700">RanzomTech</span>
         </a>
       </p>
     </div>
   );
 }
+
 // Contact Card Component
 const ContactCard = ({ icon, text }) => (
   <div className="flex items-center gap-3 bg-white/50 backdrop-blur-md px-5 py-3 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
