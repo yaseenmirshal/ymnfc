@@ -164,7 +164,7 @@ export default function Home() {
 
         {/* Buttons */}
         <div className="flex justify-center gap-4 pb-2">
-          <a href="https://yaseen-mirshal-portfolio.vercel.app/">
+          <a href="https://ymnfc.vercel.app/">
             <Button text="Portfolio" />
           </a>
           <a href="/YaseenMirshal.vcf" download="Yaseen_Mirshal_Contact">

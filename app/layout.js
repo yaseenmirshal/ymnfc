@@ -23,8 +23,8 @@ const sora = Sora({
 });
 
 export const metadata = {
-  title: "ymNFC",
-  description: "YM NFC CARD",
+  title: "Yaseen Mirshal Contact Details",
+  description: "NFC Business",
 };
 
 export default function RootLayout({ children }) {
