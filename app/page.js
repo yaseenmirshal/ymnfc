@@ -15,6 +15,7 @@ import {
   FaEnvelope,
   FaBehance,
   FaDownload,
+  FaShareAlt,
 } from 'react-icons/fa';
 
 export default function Home() {
@@ -45,6 +46,8 @@ export default function Home() {
       </div>
     );
   }
+
+  
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-200 text-gray-800 relative">
@@ -98,11 +101,43 @@ export default function Home() {
   data-aos="fade-up"
   data-aos-delay="400"
 >
-  <ContactCard
-    href="tel:+919947234099"
-    icon={<FaPhoneAlt size={20} />}
-    text="+91 9947234099"
-  />
+  <div className="flex flex-row gap-3">
+    <a
+      href="tel:+919947234099"
+      className="flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-md shadow-md bg-white backdrop-blur-md text-gray-700 hover:bg-gray-300 hover:scale-110 transition-transform duration-300"
+      style={{ textDecoration: 'none' }}
+    >
+      <FaPhoneAlt size={20} />
+      +91 9947234099
+    </a>
+    <button
+      onClick={async () => {
+        const nfcLink = 'https://yaseen-mirshal-portfolio.vercel.app/';
+        if (navigator.share) {
+          try {
+            await navigator.share({
+              title: 'Yaseen Mirshal NFC Link',
+              url: nfcLink,
+            });
+          } catch (e) {}
+        } else {
+          try {
+            await navigator.clipboard.writeText(nfcLink);
+            alert('NFC link copied to clipboard!');
+          } catch {
+            alert('Failed to copy link');
+          }
+        }
+      }}
+      className="flex items-center justify-center p-3 rounded-md shadow-md bg-white hover:text-black hover:scale-110 transition-transform duration-300"
+      title="Share NFC Link"
+      aria-label="Share NFC Link"
+    >
+      
+      <FaShareAlt className='mr-2' size={18} />
+      <span className="text-gray-700 text-sm font-semibold">Share </span>
+    </button>
+  </div>
   <ContactCard
     href="mailto:mirshalranzomllp@gmail.com"
     icon={<FaEnvelope size={20} />}
@@ -150,10 +185,12 @@ export default function Home() {
 }
 
 // Contact Card Component
-const ContactCard = ({ icon, text }) => (
+const ContactCard = ({ icon, text, href }) => (
   <div className="flex items-center gap-3 bg-white/50 backdrop-blur-md px-5 py-3 rounded-lg shadow-lg hover:scale-105 transition-transform duration-300">
     <div className="text-gray-700">{icon}</div>
-    <span className="text-gray-700 text-sm font-semibold">{text}</span>
+    <a href={href} className="text-gray-700 text-sm font-semibold hover:underline focus:underline">
+      {text}
+    </a>
   </div>
 );
 
@@ -173,7 +210,7 @@ const SocialLink = ({ href, icon }) => (
 // Button Component
 const Button = ({ text, isPrimary, icon }) => (
   <button
-    className={`flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-md shadow-md transition-transform duration-300 ${
+    className={`flex items-center justify-center gap-2 px-6 py-3 rounded-full font-semibold text-md shadow-md transition-transform duration-300 ${
       isPrimary
         ? 'bg-gradient-to-r from-gray-800 to-gray-600 hover:from-gray-700 hover:to-gray-500 text-white'
         : 'bg-gray-300 hover:bg-gray-400 text-gray-700'
