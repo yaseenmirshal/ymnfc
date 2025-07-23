@@ -116,7 +116,7 @@ export default function Home() {
         if (navigator.share) {
           try {
             await navigator.share({
-              title: 'Yaseen Mirshal NFC Link',
+              title: 'Mirshal Contact info.',
               url: nfcLink,
             });
           } catch (e) {}
